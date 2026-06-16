@@ -115,7 +115,30 @@ Share a little about your current data challenge and I will help you turn it int
 </div>
 
 <button type="submit">Send Message</button>
+<div class="submission-status" id="submission-status" hidden></div>
 </form>
+</div>
+</section>
+
+<section class="section section-alt submissions-section" aria-labelledby="submissions-title">
+<span class="section-kicker">Project Database</span>
+<h2 id="submissions-title">Visitor Project Requests</h2>
+<p>Saved requests appear here in your browser. To share across visitors, connect this form to a real backend or database service like Firebase, Airtable, or a custom API.</p>
+<div class="submission-panel">
+<table class="submissions-table" id="submissions-table">
+<thead>
+<tr>
+<th>Name</th>
+<th>Project Type</th>
+<th>Timeline</th>
+<th>Message</th>
+</tr>
+</thead>
+<tbody>
+<tr><td colspan="4">No project requests yet.</td></tr>
+</tbody>
+</table>
+<button type="button" class="btn-secondary" id="clear-submissions">Clear Stored Requests</button>
 </div>
 </section>
 
@@ -168,5 +191,6 @@ Share a little about your current data challenge and I will help you turn it int
 WA
 </a>
 
+<script src="js/script.js" defer></script>
 </body>
 </html>

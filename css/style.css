@@ -299,6 +299,36 @@ nav a:hover{
     border:1px solid rgba(34,211,238,.12);
 }
 
+.ai-solutions{
+    padding-top:30px;
+    padding-bottom:30px;
+}
+
+.ai-grid{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
+    gap:24px;
+    margin-top:30px;
+}
+
+.ai-card{
+    background:linear-gradient(180deg, rgba(30,64,175,.95), rgba(15,23,42,.95));
+    border:1px solid rgba(34,211,238,.18);
+    padding:28px;
+    border-radius:24px;
+    box-shadow:0 20px 40px rgba(15,23,42,.3);
+}
+
+.ai-card h3{
+    color:#7dd3fc;
+    margin-bottom:18px;
+}
+
+.ai-card p{
+    color:#cbd5e1;
+    line-height:1.8;
+}
+
 .analysis-chart-card h3,
 .analysis-summary h3{
     color:#60a5fa;
@@ -339,7 +369,79 @@ nav a:hover{
     margin-bottom:12px;
 }
 
+.submissions-section{
+    padding-top:40px;
+}
+
+.submission-status{
+    margin-top:22px;
+    padding:18px 22px;
+    border-radius:12px;
+    transition: background .2s ease, color .2s ease, border-color .2s ease;
+    font-weight:600;
+    line-height:1.5;
+}
+
+.submission-status.status-success {
+    background:rgba(16,185,129,.16);
+    color:#a7f3d0;
+    border:1px solid rgba(16,185,129,.4);
+}
+
+.submission-status.status-error {
+    background:rgba(248,113,113,.12);
+    color:#fecaca;
+    border:1px solid rgba(248,113,113,.4);
+}
+
+.submission-status.status-info {
+    background:rgba(56,189,248,.12);
+    color:#bae6fd;
+    border:1px solid rgba(56,189,248,.4);
+}
+
+.submission-panel{
+    margin-top:30px;
+    display:grid;
+    gap:20px;
+}
+
+.submissions-table{
+    width:100%;
+    border-collapse:collapse;
+    background:rgba(15,23,42,.95);
+    border:1px solid rgba(255,255,255,.08);
+}
+
+.submissions-table th,
+.submissions-table td{
+    padding:18px 16px;
+    text-align:left;
+    border-bottom:1px solid rgba(255,255,255,.08);
+}
+
+.submissions-table th{
+    color:#22d3ee;
+    font-weight:700;
+}
+
+.submissions-table td{
+    color:#cbd5e1;
+}
+
+.submissions-table tr:last-child td{
+    border-bottom:none;
+}
+
+#clear-submissions{
+    justify-self:flex-start;
+}
+
 @media(max-width:900px){
+    .submissions-table th,
+    .submissions-table td{
+        padding:14px 12px;
+    }
     .analysis-highlights{
         grid-template-columns:1fr;
     }
