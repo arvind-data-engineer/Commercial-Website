@@ -11,8 +11,14 @@ function getSubmissions() {
   if (USE_API) {
     return [];
   }
-  const stored = localStorage.getItem(STORAGE_KEY);
-  return stored ? JSON.parse(stored) : [];
+
+  try {
+    const stored = localStorage.getItem(STORAGE_KEY);
+    return stored ? JSON.parse(stored) : [];
+  } catch (error) {
+    console.error('Local storage read error:', error);
+    return [];
+  }
 }
 
 function saveSubmissions(submissions) {
@@ -34,6 +40,7 @@ async function fetchFromAPI() {
 
 function renderSubmissions(submissions) {
   if (!tableBody) return;
+
   tableBody.innerHTML = '';
 
   if (!submissions || submissions.length === 0) {
@@ -52,7 +59,7 @@ function renderSubmissions(submissions) {
     row.innerHTML = `
       <td>${item.name || 'Anonymous'}</td>
       <td>${projectType}</td>
-      <td>${item.timeline || '—'}</td>
+      <td>${item.timeline || '-'}</td>
       <td>${messageText}</td>
     `;
     tableBody.appendChild(row);
@@ -110,7 +117,7 @@ if (form) {
       message: formData.get('message'),
       timeline: formData.get('timeline'),
       budget: formData.get('budget'),
-      submittedAt: new Date().toISOString()
+      submittedAt: new Date().toISOString(),
     };
 
     if (USE_API) {
@@ -118,16 +125,16 @@ if (form) {
       if (result) {
         const submissions = await fetchFromAPI();
         renderSubmissions(submissions);
-        showStatus('✓ Project request saved to the database. Thanks! Your request is visible below.', 'success');
+        showStatus('Project request saved to the database. Thanks! Your request is visible below.', 'success');
       } else {
-        showStatus('✗ Unable to reach the backend. Your request was not saved to the database.', 'error');
+        showStatus('Unable to reach the backend. Your request was not saved to the database.', 'error');
       }
     } else {
       const submissions = getSubmissions();
       submissions.unshift(submission);
       saveSubmissions(submissions);
       renderSubmissions(submissions);
-      showStatus('✓ Project request saved locally. Great! Your request appears below.', 'success');
+      showStatus('Project request saved locally. Great! Your request appears below.', 'success');
     }
 
     form.reset();

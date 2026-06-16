@@ -1,6 +1,8 @@
-from pydantic import BaseModel, EmailStr
 from datetime import datetime
 from typing import Optional
+
+from pydantic import BaseModel, EmailStr
+
 
 class ProjectRequestCreate(BaseModel):
     name: str
@@ -12,6 +14,7 @@ class ProjectRequestCreate(BaseModel):
 
     class Config:
         from_attributes = True
+
 
 class ProjectRequestResponse(ProjectRequestCreate):
     id: int

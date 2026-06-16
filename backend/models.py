@@ -1,6 +1,9 @@
-from sqlalchemy import Column, Integer, String, Text, DateTime
 from datetime import datetime
+
+from sqlalchemy import Column, DateTime, Integer, String, Text
+
 from database import Base
+
 
 class ProjectRequest(Base):
     __tablename__ = "project_requests"
@@ -13,6 +16,6 @@ class ProjectRequest(Base):
     timeline = Column(String, nullable=True)
     budget = Column(String, nullable=True)
     submitted_at = Column(DateTime, default=datetime.utcnow)
-    
+
     def __repr__(self):
         return f"<ProjectRequest(id={self.id}, name={self.name}, email={self.email})>"
