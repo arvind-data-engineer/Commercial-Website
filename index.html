@@ -1,502 +1,327 @@
 <!DOCTYPE html>
 <html lang="en">
-	<head>
-		<meta charset="UTF-8" />
-		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-		<meta name="description" content="Data With Arvind — data engineering, dashboards, and automation." />
-		<title>Data with Arvind | Data Engineering & Analytics</title>
-
-		<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
-
-		<style>
-			*{box-sizing:border-box;margin:0;padding:0;font-family:'Poppins',sans-serif}
-			html,body{height:100%}
-			body{background:#0f172a;color:#e6eef8;overflow-x:hidden}
-			a{color:inherit;text-decoration:none}
-			.container{width:90%;max-width:1200px;margin:0 auto}
-
-			/* Navbar */
-			nav{position:fixed;top:0;left:0;right:0;padding:18px 0;background:rgba(7,10,19,.6);backdrop-filter:blur(6px);border-bottom:1px solid rgba(255,255,255,.04);z-index:50}
-			.nav-inner{display:flex;align-items:center;justify-content:space-between;gap:24px}
-			.logo{color:#22d3ee;font-weight:800;font-size:20px}
-			.nav-links{display:flex;gap:20px}
-			.nav-links a{color:#cbd5e1;opacity:.95}
-			.nav-links a.active{color:#22d3ee}
-			.nav-links a:hover{color:#22d3ee}
-
-			/* Hero */
-			.hero{min-height:80vh;display:flex;align-items:center}
-			.hero-grid{display:grid;grid-template-columns:1fr 420px;gap:40px;align-items:center}
-			.hero h1{font-size:48px;line-height:1.05;color:#fff;margin-bottom:14px}
-			.hero p.lead{color:#9fb0c9;margin-bottom:22px;font-size:18px}
-			.btn{display:inline-block;padding:12px 26px;border-radius:10px;background:#22d3ee;color:#041022;font-weight:700}
-			.btn.secondary{background:transparent;color:#cbd5e1;border:1px solid rgba(255,255,255,.06)}
-
-			/* Card preview */
-			.card{background:#0b1220;padding:18px;border-radius:14px;border:1px solid rgba(255,255,255,.04)}
-			.dashboard-topline{display:flex;justify-content:space-between;align-items:center;font-size:13px;color:#9fb0c9;margin-bottom:12px}
-			.metric-row{display:flex;gap:12px}
-			.metric{background:linear-gradient(180deg,#0f172a,#0b1220);padding:12px;border-radius:10px;flex:1}
-			.metric h2{font-size:20px;color:#22d3ee}
-
-			/* Sections */
-			.section{padding:80px 0}
-			.section .section-kicker{display:block;color:#7f9bb0;font-weight:600;margin-bottom:8px}
-			.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:20px}
-			.card h3{margin-bottom:10px}
-
-			/* Footer */
-			footer{padding:40px 0;border-top:1px solid rgba(255,255,255,.03);margin-top:40px}
-			.footer-links a{margin-right:18px;color:#9fb0c9}
-
-			/* Responsive */
-			@media (max-width:900px){.hero-grid{grid-template-columns:1fr;}.nav-links{display:none}.hero h1{font-size:32px}}
-		</style>
-	</head>
-	<body>
-		<nav>
-			<div class="container nav-inner">
-				<a class="logo" href="index.html">Data with Arvind</a>
-				<div class="nav-links">
-					<a href="index.html" class="active">Home</a>
-					<a href="services.html">Services</a>
-					<a href="portfolio.html">Portfolio</a>
-					<a href="about.html">About</a>
-					<a href="contact.html">Contact</a>
-					<a href="blog.html">Blog</a>
-				</div>
-			</div>
-		</nav>
-
-		<main class="container" style="padding-top:100px">
-			<section class="hero">
-				<div class="hero-grid">
-					<div>
-						<p class="section-kicker">Data Engineer · Power BI · Python · SQL</p>
-						<h1>Turn raw data into clear business decisions</h1>
-						<p class="lead">I build dashboards, automated reporting workflows, and scalable data pipelines that help teams move from scattered data to confident action.</p>
-						<div style="display:flex;gap:12px">
-							<a href="portfolio.html" class="btn">View portfolio</a>
-							<a href="contact.html" class="btn secondary">Start a project</a>
-						</div>
-						<div style="margin-top:18px;color:#9fb0c9;display:flex;gap:12px;flex-wrap:wrap">
-							<span>✔ SQL Reporting</span>
-							<span>✔ Power BI</span>
-							<span>✔ Azure Data Factory</span>
-							<span>✔ Python Automation</span>
-						</div>
-					</div>
-
-					<div>
-						<div class="card">
-							<div class="dashboard-topline"><span>Live Analytics Preview</span><strong>Q2</strong></div>
-							<div class="metric-row">
-								<div class="metric"><small>Revenue</small><h2>$128K</h2></div>
-								<div class="metric"><small>Growth</small><h2>+24%</h2></div>
-							</div>
-							<div style="margin-top:12px"><small>Orders Processed</small><h2 style="margin-top:6px">4,892</h2></div>
-						</div>
-					</div>
-				</div>
-			</section>
-
-			<section class="section" aria-labelledby="services-title">
-				<span class="section-kicker">What I build</span>
-				<h2 id="services-title">Data solutions for faster decisions</h2>
-				<div class="grid" style="margin-top:22px">
-					<article class="card"><h3>Power BI Dashboards</h3><p>Interactive KPI dashboards, executive reporting, and business analytics built for daily decision-making.</p></article>
-					<article class="card"><h3>Python Automation</h3><p>Automated Excel processing, scheduled reports, and reproducible workflows that save time.</p></article>
-					<article class="card"><h3>Azure Data Engineering</h3><p>ETL pipelines, ingestion patterns, and cloud-ready data flows using Azure Data Factory.</p></article>
-				</div>
-			</section>
-
-			<section class="section" aria-labelledby="projects-title">
-				<span class="section-kicker">Selected work</span>
-				<h2 id="projects-title">Featured projects</h2>
-				<div class="grid" style="margin-top:22px">
-					<article class="card"><h3>Sales Analytics Dashboard</h3><p>Power BI dashboard with KPI tracking and sales trend analysis.</p><a href="portfolio.html" class="text-link">View project</a></article>
-					<article class="card"><h3>ADF ETL Pipeline</h3><p>Designed a reliable Data Factory workflow for high-volume ingestion.</p><a href="portfolio.html" class="text-link">View project</a></article>
-					<article class="card"><h3>Reporting Automation</h3><p>Automated recurring reporting pipelines and workbook generation.</p><a href="portfolio.html" class="text-link">View project</a></article>
-				</div>
-			</section>
-
-			<section class="section" aria-labelledby="about-title">
-				<div style="display:grid;grid-template-columns:1fr 320px;gap:24px;align-items:start">
-					<div>
-						<span class="section-kicker">About</span>
-						<h2 id="about-title">Hi, I'm Arvind</h2>
-						<p style="color:#9fb0c9;margin-top:10px">I am a data engineer focused on building scalable data solutions, useful dashboards, and automation systems that make business reporting smoother.</p>
-					</div>
-					<div class="card">
-						<h3>Certifications & focus</h3>
-						<ul style="margin-top:10px;color:#9fb0c9;line-height:1.6">
-							<li>Microsoft Azure Fundamentals</li>
-							<li>Azure Data Fundamentals</li>
-							<li>Power BI dashboard development</li>
-						</ul>
-					</div>
-				</div>
-			</section>
-
-			<section class="section cta-section">
-				<div class="card" style="text-align:center;padding:30px">
-					<h2>Ready to transform your data?</h2>
-					<p style="color:#9fb0c9;margin:12px 0">Let's discuss your next dashboard, automation workflow, or data engineering project.</p>
-					<a href="contact.html" class="btn">Get in touch</a>
-				</div>
-			</section>
-
-			<footer>
-				<div style="display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap">
-					<div>
-						<h3>Data with Arvind</h3>
-						<p style="color:#9fb0c9">Building data pipelines, dashboards, and automation solutions.</p>
-					</div>
-					<div class="footer-links">
-						<a href="https://www.linkedin.com/" target="_blank" rel="noopener">LinkedIn</a>
-						<a href="https://github.com/" target="_blank" rel="noopener">GitHub</a>
-						<a href="mailto:data_with_arvind@gmail.com">Email</a>
-					</div>
-				</div>
-				<p style="margin-top:18px;color:#7f9bb0">&copy; 2026 Data with Arvind</p>
-			</footer>
-		</main>
-
-		<a href="https://wa.me/918861333476" style="position:fixed;right:18px;bottom:18px;background:#22d3ee;color:#041022;padding:12px 14px;border-radius:10px;font-weight:700;text-decoration:none">WA</a>
-	</body>
-</html>
-
-.stats{
-display:grid;
-grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
-gap:25px;
-margin-top:50px;
-}
-
-.stat{
-background:#1e293b;
-padding:30px;
-border-radius:20px;
-text-align:center;
-}
-
-.stat h2{
-font-size:42px;
-color:#22d3ee;
-}
-
-/* Portfolio */
-
-.project{
-background:#1e293b;
-padding:25px;
-border-radius:20px;
-}
-
-.project img{
-width:100%;
-border-radius:12px;
-margin-bottom:15px;
-}
-
-/* Pricing */
-
-.pricing{
-display:grid;
-grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
-gap:30px;
-}
-
-.price-card{
-background:#1e293b;
-padding:40px;
-border-radius:20px;
-text-align:center;
-}
-
-.price{
-font-size:50px;
-font-weight:800;
-color:#22d3ee;
-margin:20px 0;
-}
-
-/* Contact */
-
-.contact{
-background:#111827;
-border-radius:30px;
-padding:50px;
-text-align:center;
-}
-
-.contact p{
-margin:10px 0;
-color:#cbd5e1;
-}
-
-/* Footer */
-
-footer{
-padding:30px;
-text-align:center;
-border-top:1px solid rgba(255,255,255,.08);
-color:#94a3b8;
-}
-
-/* Floating WhatsApp */
-
-.whatsapp{
-position:fixed;
-bottom:25px;
-right:25px;
-background:#22d3ee;
-color:black;
-padding:15px 20px;
-border-radius:50px;
-font-weight:700;
-z-index:999;
-}
-
-@media(max-width:768px){
-
-.hero h1{
-font-size:45px;
-}
-
-.nav-links{
-display:none;
-}
-
-.section-title{
-font-size:35px;
-}
-
-}
-
-</style>
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Data With Arvind helps teams build Power BI dashboards, Python automations, SQL reporting, and Azure data pipelines.">
+<title>Data With Arvind | Data Engineering, BI & Automation</title>
+<link rel="stylesheet" href="css/style.css">
 </head>
+
 <body>
 
-<nav>
-<div class="container nav-container">
-<div class="logo">Data with Arvind</div>
+<nav aria-label="Primary navigation">
+<a class="logo" href="index.html">Data With Arvind</a>
 
-<div class="nav-links">
-<a href="#services">Services</a>
-<a href="#portfolio">Portfolio</a>
-<a href="#pricing">Pricing</a>
-<a href="#contact">Contact</a>
-</div>
-</div>
+<ul>
+<li><a href="index.html" aria-current="page">Home</a></li>
+<li><a href="services.html">Services</a></li>
+<li><a href="portfolio.html">Portfolio</a></li>
+<li><a href="about.html">About</a></li>
+<li><a href="contact.html">Contact</a></li>
+<li><a href="blog.html">Blog</a></li>
+</ul>
 </nav>
 
+<main>
+
 <section class="hero">
+<div class="hero-left">
+<p class="hero-tag">Data Engineer | Power BI | Python | SQL</p>
 
-<div class="hero-content">
-
-<h1>
-Transform Your Data Into <span>Business Growth</span>
-</h1>
+<h1>Turn Raw Data Into Clear Business Decisions</h1>
 
 <p>
-Helping businesses automate workflows, build modern data pipelines,
-develop Power BI dashboards and create scalable analytics solutions.
+I build dashboards, automated reporting workflows, and scalable data pipelines that help teams move from scattered data to confident action.
 </p>
 
-<a href="#contact" class="btn">
-Get Free Consultation
-</a>
+<ul class="hero-benefits">
+<li>Insights delivered in clear dashboards</li>
+<li>Automated data flows with Python & Azure</li>
+<li>Reporting built to scale with your business</li>
+</ul>
 
+<div class="hero-buttons" aria-label="Homepage actions">
+<a href="portfolio.html" class="btn-primary">View Portfolio</a>
+<a href="contact.html" class="btn-secondary">Start a Project</a>
 </div>
 
+<div class="trust-badges" aria-label="Core skills">
+<span>&check; SQL Reporting</span>
+<span>&check; Power BI Dashboards</span>
+<span>&check; Azure Pipelines</span>
+<span>&check; Python Automation</span>
+</div>
+</div>
+
+<div class="hero-right" aria-label="Dashboard preview">
+<div class="card dashboard-card">
+<div class="dashboard-topline">
+<span>Live Analytics Preview</span>
+<strong>Q2</strong>
+</div>
+
+<div class="metric-row">
+<div class="metric">
+<span>Revenue</span>
+<h2>$128K</h2>
+</div>
+
+<div class="metric">
+<span>Growth</span>
+<h2>+24%</h2>
+</div>
+</div>
+
+<div class="metric">
+<span>Orders Processed</span>
+<h2>4,892</h2>
+</div>
+
+<div class="chart" aria-hidden="true">
+<div class="chart-bar chart-bar-one"></div>
+<div class="chart-bar chart-bar-two"></div>
+<div class="chart-bar chart-bar-three"></div>
+<div class="chart-bar chart-bar-four"></div>
+<div class="chart-bar chart-bar-five"></div>
+</div>
+</div>
+</div>
+</div>
 </section>
 
-<section class="section" id="services">
+<section class="section analytics-section" aria-labelledby="analysis-title">
+<span class="section-kicker">Analysis Snapshot</span>
+<h2 id="analysis-title">See the Insights Behind Every Decision</h2>
 
-<div class="container">
+<div class="analytics-grid">
+<article class="card analysis-card">
+<h3>Revenue Momentum</h3>
+<p>Track growth across channels with easy-to-read performance indicators.</p>
+<div class="analysis-metrics">
+<div>
+<strong>32%</strong>
+<span>Monthly Growth</span>
+</div>
+<div>
+<strong>14</strong>
+<span>New Deals</span>
+</div>
+</div>
+</article>
 
-<h2 class="section-title">Services</h2>
+<article class="card analysis-card">
+<h3>Operational Health</h3>
+<p>Monitor process automation, delivery speed, and data pipeline stability.</p>
+<div class="analysis-metrics">
+<div>
+<strong>98%</strong>
+<span>Uptime</span>
+</div>
+<div>
+<strong>6 min</strong>
+<span>Avg. Refresh</span>
+</div>
+</div>
+</article>
 
-<p class="section-subtitle">
-End-to-End Data Solutions
-</p>
+<article class="card analysis-card">
+<h3>Data Confidence</h3>
+<p>See quality scores, anomaly detection, and insights readiness at a glance.</p>
+<div class="analysis-metrics">
+<div>
+<strong>9.4</strong>
+<span>Quality Score</span>
+</div>
+<div>
+<strong>3</strong>
+<span>Issues Found</span>
+</div>
+</div>
+</article>
+</div>
+
+<div class="analysis-highlights">
+<div class="analysis-chart-card card">
+<h3>Monthly Revenue vs Target</h3>
+<div class="mini-chart" aria-hidden="true">
+<div class="mini-bar mini-bar-one"></div>
+<div class="mini-bar mini-bar-two"></div>
+<div class="mini-bar mini-bar-three"></div>
+<div class="mini-bar mini-bar-four"></div>
+<div class="mini-bar mini-bar-five"></div>
+</div>
+</div>
+<div class="analysis-summary card">
+<h3>Quick Take</h3>
+<p>Revenue is ahead of target for the quarter, while automation efforts continue to reduce reporting time and improve accuracy.</p>
+<ul>
+<li>Higher sales velocity in Core accounts</li>
+<li>Faster report delivery with Python automation</li>
+<li>Robust pipeline performance across Azure data flows</li>
+</ul>
+</div>
+</div>
+</section>
+
+<section class="section section-intro section-alt" aria-labelledby="services-title">
+<span class="section-kicker">What I Build</span>
+<h2 id="services-title">Data Solutions For Faster Decisions</h2>
 
 <div class="grid">
-
-<div class="card">
+<article class="card">
 <h3>Power BI Dashboards</h3>
-<p>
-Interactive dashboards, KPI reporting,
-executive insights and business analytics.
-</p>
-</div>
+<p>Interactive KPI dashboards, executive reporting, DAX measures, and business analytics built for daily decision-making.</p>
+</article>
 
-<div class="card">
+<article class="card service-card" data-icon="🤖">
 <h3>Python Automation</h3>
-<p>
-Automate Excel files, reporting,
-data processing and repetitive tasks.
-</p>
-</div>
+<p>Automated Excel processing, scheduled reports, data cleaning scripts, and repeatable workflows that reduce manual effort.</p>
+</article>
 
-<div class="card">
-<h3>SQL Development</h3>
-<p>
-Database design, query optimization,
-reporting and performance tuning.
-</p>
+<article class="card service-card" data-icon="☁️">
+<h3>Azure Data Engineering</h3>
+<p>ETL pipelines, data ingestion, Data Lake patterns, and cloud-ready data flows using Azure Data Factory.</p>
+</article>
 </div>
-
-<div class="card">
-<h3>Data Engineering</h3>
-<p>
-ETL Pipelines, Azure Data Factory,
-Spark, Kafka and Airflow solutions.
-</p>
-</div>
-
-</div>
-
-</div>
-
 </section>
 
-<section class="section">
+<section class="section split-section" aria-labelledby="why-title">
+<div class="why-text">
+<span class="section-kicker">Why Work With Me</span>
+<h2 id="why-title">Practical Data Work With Business Context</h2>
+<p>
+Good analytics should be accurate, easy to maintain, and simple for stakeholders to understand. My work focuses on clean models, reliable pipelines, and dashboards that answer real operating questions.
+</p>
+<p>
+I combine technical rigor with business-ready reporting so your team gets insights they can act on immediately.
+</p>
+</div>
 
-<div class="container">
-
-<h2 class="section-title">Why Work With Me?</h2>
-
-<div class="stats">
-
-<div class="stat">
-<h2>2+</h2>
+<div class="why-image-card">
+<div class="why-highlight">
+<p class="why-highlight-title">Trusted to deliver high-impact solutions across analytics, automation, and cloud engineering.</p>
+<ul class="why-highlight-list">
+<li>Clear reporting for better decisions</li>
+<li>Reliable automation that saves time</li>
+<li>Scalable pipelines designed for growth</li>
+</ul>
+</div>
+<div class="stats-grid">
+<div class="card stat-card">
+<h3>2+</h3>
 <p>Years Experience</p>
 </div>
 
-<div class="stat">
-<h2>50+</h2>
-<p>Reports Created</p>
+<div class="card stat-card">
+<h3>50+</h3>
+<p>Dashboards Created</p>
 </div>
 
-<div class="stat">
-<h2>100%</h2>
-<p>Client Focused</p>
+<div class="card stat-card">
+<h3>10+</h3>
+<p>Technologies Used</p>
 </div>
 
-<div class="stat">
-<h2>24/7</h2>
-<p>Support</p>
+<div class="card stat-card">
+<h3>100%</h3>
+<p>Data Driven</p>
 </div>
-
 </div>
-
 </div>
-
 </section>
 
-<section class="section" id="portfolio">
+<section class="section" aria-labelledby="stack-title">
+<span class="section-kicker">Tools</span>
+<h2 id="stack-title">Technology Stack</h2>
 
-<div class="container">
+<div class="tech-wrapper">
+<span class="tech-tag">SQL</span>
+<span class="tech-tag">Python</span>
+<span class="tech-tag">Power BI</span>
+<span class="tech-tag">Azure Data Factory</span>
+<span class="tech-tag">Spark</span>
+<span class="tech-tag">Kafka</span>
+<span class="tech-tag">Airflow</span>
+<span class="tech-tag">Excel Automation</span>
+</div>
+</section>
 
-<h2 class="section-title">Portfolio</h2>
+<section class="section section-alt" aria-labelledby="projects-title">
+<span class="section-kicker">Selected Work</span>
+<h2 id="projects-title">Featured Projects</h2>
 
 <div class="grid">
+<article class="card project-card" data-icon="📊">
+<h3>Sales Analytics Dashboard</h3>
+<p>Built a Power BI dashboard with KPI tracking, sales trend analysis, and forecasting-ready reporting views.</p>
+<a href="portfolio.html" class="text-link">View project</a>
+</article>
 
-<div class="project">
-<h3>Sales Dashboard</h3>
-<p>Power BI Executive Dashboard</p>
+<article class="card project-card" data-icon="☁️">
+<h3>ADF ETL Pipeline</h3>
+<p>Designed an Azure Data Factory ingestion workflow for high-volume data movement and repeatable processing.</p>
+<a href="portfolio.html" class="text-link">View project</a>
+</article>
+
+<article class="card project-card" data-icon="🤖">
+<h3>Python Reporting Automation</h3>
+<p>Reduced manual reporting effort by automating data preparation, workbook generation, and recurring report steps.</p>
+<a href="portfolio.html" class="text-link">View project</a>
+</article>
 </div>
-
-<div class="project">
-<h3>HR Analytics Dashboard</h3>
-<p>Employee Performance Insights</p>
-</div>
-
-<div class="project">
-<h3>Python Automation Tool</h3>
-<p>Automated Reporting System</p>
-</div>
-
-</div>
-
-</div>
-
 </section>
 
-<section class="section" id="pricing">
-
-<div class="container">
-
-<h2 class="section-title">Pricing</h2>
-
-<div class="pricing">
-
-<div class="price-card">
-<h3>Starter</h3>
-<div class="price">₹2,999</div>
-<p>Basic Dashboard</p>
-<p>3-5 Visuals</p>
-<p>1 Revision</p>
+<section class="section split-section" aria-labelledby="about-title">
+<div>
+<span class="section-kicker">About</span>
+<h2 id="about-title">Hi, I'm Arvind</h2>
+<p>
+I am a data engineer focused on building scalable data solutions, useful dashboards, and automation systems that make business reporting smoother.
+</p>
+<p>
+My expertise includes SQL, Python, Power BI, Azure Data Factory, Spark, Kafka, Airflow, and ETL development.
+</p>
 </div>
 
-<div class="price-card">
-<h3>Professional</h3>
-<div class="price">₹7,999</div>
-<p>Advanced Dashboard</p>
-<p>10+ Visuals</p>
-<p>Data Modeling</p>
+<div class="card highlight-card">
+<h3>Certifications & Focus Areas</h3>
+<ul>
+<li>Microsoft Azure Fundamentals</li>
+<li>Azure Data Fundamentals</li>
+<li>Power BI dashboard development</li>
+<li>Data pipeline and reporting automation</li>
+</ul>
 </div>
-
-<div class="price-card">
-<h3>Enterprise</h3>
-<div class="price">Custom</div>
-<p>ETL Pipeline</p>
-<p>Automation</p>
-<p>Consulting</p>
-</div>
-
-</div>
-
-</div>
-
 </section>
 
-<section class="section" id="contact">
-
-<div class="container">
-
-<div class="contact">
-
-<h2 class="section-title">Let's Build Something Amazing</h2>
-
-<p>📧 arvindchauhan2394@gmail.com</p>
-
-<p>🔗 https://www.linkedin.com/in/arvind-chauhan-bb3a75148/</p>
-
-<p>📱 9226232697</p>
-
-<br>
-
-<a href="#" class="btn">
-Contact Me
-</a>
-
+<section class="section cta-section" aria-labelledby="cta-title">
+<div class="cta-panel">
+<h2 id="cta-title">Ready To Transform Your Data?</h2>
+<p>Let's discuss your next dashboard, automation workflow, or data engineering project.</p>
+<a href="contact.html" class="btn-primary">Get In Touch</a>
 </div>
-
-</div>
-
 </section>
 
-<footer>
-© 2026 Data with Arvind | Data Engineering • Analytics • Automation
+</main>
+
+<footer class="footer">
+<h2>Data With Arvind</h2>
+<p>Building data pipelines, dashboards, and automation solutions.</p>
+
+<div class="footer-links">
+<a href="https://www.linkedin.com/" target="_blank" rel="noopener">LinkedIn</a>
+<a href="https://github.com/" target="_blank" rel="noopener">GitHub</a>
+<a href="mailto:data_with_arvind@gmail.com">Email</a>
+</div>
+
+<p>&copy; 2026 Data With Arvind</p>
 </footer>
 
-<a href="#" class="whatsapp">
-Chat Now
->>>>>>> b198fd54bd636cd659eaa4cfd9d43bcd74cb184a
+<a href="https://wa.me/918861333476" class="whatsapp-btn" aria-label="Chat on WhatsApp">
+WA
 </a>
 
 </body>
 </html>
+
