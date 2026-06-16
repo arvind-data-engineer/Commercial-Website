@@ -82,6 +82,11 @@ nav a:hover{
     display:flex;
     justify-content:center;
     align-items:center;
+    /* Prefer WebP where supported, fallback to PNG */
+    background-image: image-set(url('../images/hero-banner.webp') type('image/webp'), url('../images/hero-banner.png') type('image/png'));
+    background-repeat:no-repeat;
+    background-position:center right;
+    background-size:contain;
 }
 
 .hero-tag{

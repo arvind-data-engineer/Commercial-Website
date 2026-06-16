@@ -113,6 +113,72 @@ if (form) {
       submittedAt: new Date().toISOString()
     };
 
+    const action = form.getAttribute('action') || '';
+    const isFormspree = action.includes('formspree.io');
+    const isMockEndpoint = action.includes('localhost') && action.includes('/mock-form');
+
+    // Handle local mock endpoint (for testing)
+    if (isMockEndpoint) {
+      try {
+        const jsonBody = {};
+        for (const [k, v] of formData.entries()) jsonBody[k] = v;
+        const response = await fetch(action, {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
+          body: JSON.stringify(jsonBody)
+        });
+
+        if (response.ok) {
+          const submissions = getSubmissions();
+          submissions.unshift(submission);
+          saveSubmissions(submissions);
+          renderSubmissions(submissions);
+
+          showStatus('✓ Project request sent to local mock endpoint.', 'success');
+          form.reset();
+        } else {
+          showStatus('✗ Mock endpoint returned an error.', 'error');
+        }
+      } catch (err) {
+        console.error('Mock submission failed', err);
+        showStatus('✗ Network error sending the form to mock endpoint.', 'error');
+      }
+
+      return;
+    }
+
+    // Handle Formspree client-side submission with JSON response
+    if (isFormspree) {
+      try {
+        const response = await fetch(action, {
+          method: 'POST',
+          headers: { 'Accept': 'application/json' },
+          body: formData
+        });
+
+        if (response.ok) {
+          // keep a local copy for the UI and render
+          const submissions = getSubmissions();
+          submissions.unshift(submission);
+          saveSubmissions(submissions);
+          renderSubmissions(submissions);
+
+          showStatus('✓ Project request sent. Check your email or Formspree inbox to confirm.', 'success');
+          form.reset();
+        } else {
+          const errorData = await response.json().catch(() => null);
+          console.error('Formspree error', errorData);
+          showStatus('✗ Unable to submit form. Please try again later.', 'error');
+        }
+      } catch (err) {
+        console.error('Form submission failed', err);
+        showStatus('✗ Network error sending the form. Try again later.', 'error');
+      }
+
+      return;
+    }
+
+    // Existing API/local storage logic
     if (USE_API) {
       const result = await submitToAPI(submission);
       if (result) {
