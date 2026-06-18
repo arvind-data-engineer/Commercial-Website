@@ -35,6 +35,13 @@ Check data quality, clean messy rows, find relationships between datasets, and g
 </section>
 
 <section class="section live-demo-section analyzer-workspace" aria-labelledby="live-demo-title">
+<div class="analysis-loading-overlay" id="analysis-loading-overlay" hidden>
+<div>
+<span class="analysis-spinner" aria-hidden="true"></span>
+<strong id="analysis-loading-title">Reading data</strong>
+<small id="analysis-loading-detail">Preparing your preview. Large files are limited for browser performance.</small>
+</div>
+</div>
 <div class="analyzer-command-bar">
 <div>
 <span class="section-kicker">Static Free Preview</span>
@@ -49,7 +56,7 @@ Check data quality, clean messy rows, find relationships between datasets, and g
 
 <div class="dataset-workflow" aria-label="Dataset workflow stages">
 <button type="button" class="workflow-step is-active" data-stage-button="upload"><span>01</span><strong>Upload</strong><small>CSV, JSON, Excel</small></button>
-<button type="button" class="workflow-step" data-stage-button="clean"><span>02</span><strong>Clean</strong><small>Raw vs cleaned data</small></button>
+<button type="button" class="workflow-step" data-stage-button="clean"><span>02</span><strong>Clean</strong><small>Headers, rows, values</small></button>
 <button type="button" class="workflow-step" data-stage-button="relationship"><span>03</span><strong>Relationships</strong><small>Keys and quality</small></button>
 <button type="button" class="workflow-step" data-stage-button="chart"><span>04</span><strong>Charts</strong><small>KPIs and visuals</small></button>
 </div>
@@ -107,6 +114,16 @@ Check data quality, clean messy rows, find relationships between datasets, and g
 </div>
 </div>
 
+<div class="column-identity-panel">
+<div class="column-identity-heading">
+<span>Column Profile</span>
+<strong id="column-identity-summary">Run analysis to profile each column.</strong>
+</div>
+<div class="column-identity-list" id="column-identity-list">
+<div class="column-identity-empty">Column stats will appear after upload.</div>
+</div>
+</div>
+
 <div class="ai-insight-panel">
 <div class="ai-insight-heading">
 <span>Static Analysis Output</span>
@@ -136,40 +153,33 @@ Check data quality, clean messy rows, find relationships between datasets, and g
 <strong id="decision-action">Run analysis to get recommended action.</strong>
 </div>
 </div>
+<div class="decision-detail-grid">
+<div>
+<span>Top Driver</span>
+<strong id="decision-top-driver">--</strong>
+</div>
+<div>
+<span>Weak Area</span>
+<strong id="decision-weak-area">--</strong>
+</div>
+<div>
+<span>Trend Signal</span>
+<strong id="decision-trend-signal">--</strong>
+</div>
+<div>
+<span>Decision Note</span>
+<strong id="decision-note">--</strong>
+</div>
+</div>
 </div>
 
-<div class="ai-assistant-panel">
-<div class="ai-assistant-heading">
-<div>
-<span>Ask Preview Assistant</span>
-<strong>Question the static dataset summary</strong>
-</div>
-<small>Answers use browser-side summaries only; no server AI is connected.</small>
-</div>
-<div class="ai-suggestion-row" aria-label="Suggested analysis questions">
-<button type="button" class="ai-question-chip" data-question="What are the key insights?">Key insights</button>
-<button type="button" class="ai-question-chip" data-question="What risks should I fix first?">Data risks</button>
-<button type="button" class="ai-question-chip" data-question="Which segment is performing best?">Best segment</button>
-<button type="button" class="ai-question-chip" data-question="What should I do next?">Next action</button>
-</div>
-<div class="ai-chat-window" id="ai-chat-window" aria-live="polite">
-<div class="ai-message ai-message-assistant">
-<span>Preview Assistant</span>
-<p>Upload a data file or run the sample, then ask about trends, quality issues, relationships, KPIs, or next actions from the static summary.</p>
-</div>
-</div>
-<form class="ai-chat-form" id="ai-chat-form">
-<input id="ai-question-input" type="text" placeholder="Ask: Which category is driving performance?" autocomplete="off">
-<button type="submit" class="btn-primary">Ask</button>
-</form>
-</div>
 </div>
 
 <aside class="live-demo-metrics data-stage-panel" data-stage-panel="relationship" hidden aria-label="Dataset analysis metrics">
 <article class="card live-metric-card">
 <span>Clean Rows</span>
 <strong id="live-revenue">0/0</strong>
-<small>Duplicate and blank rows handled</small>
+<small>Blank headers, duplicates, and empty values handled</small>
 </article>
 
 <article class="card live-metric-card">
@@ -213,6 +223,76 @@ Check data quality, clean messy rows, find relationships between datasets, and g
 </div>
 <canvas id="dataset-dashboard-chart" width="620" height="300" aria-label="Auto-generated dataset dashboard chart"></canvas>
 <div class="dashboard-bars" id="dataset-dashboard-bars" aria-label="Auto-generated dashboard bars"></div>
+</article>
+
+<article class="card compare-chart-card">
+<div class="chart-card-heading">
+<div>
+<span>Compare View</span>
+<strong id="compare-chart-title">Trend and segment analysis</strong>
+</div>
+<small id="compare-chart-summary">Upload data with date, category, and numeric fields to compare performance.</small>
+</div>
+<div class="compare-control-grid" aria-label="Comparison chart controls">
+<label>
+<span>Year</span>
+<select id="compare-year-select"></select>
+</label>
+<label>
+<span>Measure</span>
+<select id="compare-measure-select"></select>
+</label>
+<label>
+<span>Segment</span>
+<select id="compare-category-select"></select>
+</label>
+</div>
+<div class="compare-chart-grid">
+<div>
+<canvas id="year-comparison-chart" width="520" height="250" aria-label="Period trend chart"></canvas>
+<small id="year-comparison-summary">Period trend appears after analysis.</small>
+</div>
+<div>
+<canvas id="segment-comparison-chart" width="520" height="250" aria-label="Segment comparison chart"></canvas>
+<small id="segment-comparison-summary">Segment comparison appears after analysis.</small>
+</div>
+</div>
+<div class="compare-insight-grid">
+<div>
+<span>Best Period</span>
+<strong id="compare-best-period">--</strong>
+</div>
+<div>
+<span>Weak Period</span>
+<strong id="compare-weak-period">--</strong>
+</div>
+<div>
+<span>Movement</span>
+<strong id="compare-growth-rate">--</strong>
+</div>
+<div>
+<span>Focus</span>
+<strong id="compare-focus-note">--</strong>
+</div>
+</div>
+</article>
+
+<article class="card mini-chart-card">
+<span>Segment Share</span>
+<canvas id="segment-share-chart" width="260" height="190" aria-label="Segment share donut chart"></canvas>
+<small id="segment-share-summary">Top segment share appears after analysis.</small>
+</article>
+
+<article class="card mini-chart-card">
+<span>Data Quality</span>
+<canvas id="quality-gauge-chart" width="260" height="190" aria-label="Data quality gauge chart"></canvas>
+<small id="quality-gauge-summary">Quality score appears after analysis.</small>
+</article>
+
+<article class="card mini-chart-card">
+<span>Monthly Trend</span>
+<canvas id="monthly-trend-chart" width="260" height="190" aria-label="Monthly trend line chart"></canvas>
+<small id="monthly-trend-summary">Trend appears when date and numeric fields exist.</small>
 </article>
 
 <article class="card chart-kpi-card">
@@ -292,6 +372,6 @@ WA
 </a>
 
 <script src="https://cdn.jsdelivr.net/npm/xlsx@0.18.5/dist/xlsx.full.min.js" defer></script>
-<script src="js/live-analytics.js" defer></script>
+<script src="js/live-analytics.js?v=20260618-trend-analysis" defer></script>
 </body>
 </html>
